@@ -12,21 +12,41 @@ int main() {
 
     // Generazione cartelle
     for(int p=0; p<2; p++) {
-        for(int r=0; r<3; r++) {
+        for(int r=0; r<3; r++) 
+        {
             int k=0;
-            while(k<5) {
+            while(k<5) 
+            {
                 int d=rand()%9; // Colonna (decina)
-                if(c[p][r][d]==0) {
+                if(c[p][r][d]==0) 
+                {
                     int x;
-                    if(d==0) x=rand()%9+1;
-                    else if(d==8) x=rand()%11+80;
-                    else x=rand()%10+(d*10);
-
+                    if(d==0) 
+                    {
+                        x=rand()%9+1;
+                    }
+                    else if (d==8) 
+                    {
+                        x=rand()%11+80;
+                    }
+                    else 
+                    {
+                        x=rand()%10+(d*10);
+                    }
                     // Controllo se il numero x esiste gia nella colonna d
                     bool rpt=false;
-                    for(int i=0; i<3; i++) if(c[p][i][d]==x) rpt=true;
-
-                    if(!rpt) { c[p][r][d]=x; k++; }
+                    for(int i=0; i<3; i++) 
+                        {
+                            if(c[p][i][d]==x) 
+                            {
+                                rpt=true;
+                            }
+                        }
+                    if(!rpt) 
+                    { 
+                        c[p][r][d]=x; 
+                        k++; 
+                    }
                 }
             }
         }
@@ -38,38 +58,79 @@ int main() {
             e=rand()%90+1;
             } 
             while(t[e]);
-        t[e]=1; n++;
+        t[e]=1; 
+        n++;
 
         cout<<"\n--- ESTRATTO: "<<e<<" --- ("<<n<<"/90)\nTABELLONE:\n";
-        for(int i=1; i<=90; i++) {
-            if(t[i]) cout<<" X ";
-            else { if(i<10) cout<<" "; cout<<i<<" "; }
-            if(i%10==0) cout<<endl;
+        for(int i=1; i<=90; i++) 
+        {
+            if(t[i]) 
+            {
+                cout<<" X ";
+            }
+            else { 
+                if(i<10) 
+                {
+                    cout<<" "; 
+                }
+                else
+                {
+                    cout<<i<<" "; 
+                }
+            }
+            if(i%10==0) 
+            {
+                cout<<endl;
+            }
         }
 
-        for(int p=0; p<2; p++) {
+        for(int p=0; p<2; p++) 
+        {
             int tot=0;
             cout<<"\nGIOCATORE "<<p+1<<":\n";
-            for(int r=0; r<3; r++) {
-                for(int d=0; d<9; d++) {
+            for(int r=0; r<3; r++) 
+            {
+                for(int d=0; d<9; d++) 
+                {
                     int z=c[p][r][d];
-                    if(z==0) cout<<" . ";
-                    else if(t[z]) { cout<<" X "; tot++; }
-                    else { if(z<10) cout<<" "; cout<<z<<" "; }
+                    if(z==0) 
+                    {
+                        cout<<" . ";
+                    }
+                    else if(t[z]) 
+                    { 
+                        cout<<" X ";
+                        tot++; 
+                    }
+                    else { 
+                        if(z<10)
+                        {
+                            cout<<" "; 
+                        }
+                        else
+                        {
+                            cout<<z<<" "; 
+                        }
+                    }
                 }
                 cout<<endl;
             }
-            if(tot==15) 
+            if(tot==15)
+            {    
             v=p+1;
+            }
         }
 
-        if(v!=-1) {
+        if(v!=-1)
+        {
             cout<<"\nTOMBOLA! VINCE GIOCATORE "<<v<<endl;
-        } else {
+        } 
+        else {
             // Pausa di 2 secondi usando ctime
             long s=time(0)+2;
             while(time(0)<s); 
         }
     }
     return 0;
+
 }
