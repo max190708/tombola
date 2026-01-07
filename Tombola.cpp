@@ -11,7 +11,8 @@ int main() {
     int t[91]={0}, c[2][3][9]={0}, e, v=-1, n=0;
 
     // Generazione cartelle
-    for(int p=0; p<2; p++) {
+    for(int p=0; p<2; p++) 
+    {
         for(int r=0; r<3; r++) 
         {
             int k=0;
@@ -53,7 +54,8 @@ int main() {
     }
 
     // Gioco
-    while(v==-1) {
+    while(v==-1) 
+    {
         do { 
             e=rand()%90+1;
             } 
@@ -68,7 +70,8 @@ int main() {
             {
                 cout<<" X ";
             }
-            else { 
+            else 
+            { 
                 if(i<10) 
                 {
                     cout<<" "; 
@@ -102,7 +105,8 @@ int main() {
                         cout<<" X ";
                         tot++; 
                     }
-                    else { 
+                    else
+                    { 
                         if(z<10)
                         {
                             cout<<" "; 
@@ -125,12 +129,9 @@ int main() {
         {
             cout<<"\nTOMBOLA! VINCE GIOCATORE "<<v<<endl;
         } 
-        else {
-            // Pausa di 2 secondi usando ctime
-            long s=time(0)+2;
-            while(time(0)<s); 
-        }
+    
     }
     return 0;
 
 }
+
