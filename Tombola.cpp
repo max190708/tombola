@@ -8,13 +8,13 @@ using namespace std;
 int main()
 {
 	srand(time(0));
-
+    // dichiarazione
 	int t[91]={0};
 	int c[2][3][9]={0};
 	int e;
 	int v=-1;
 	int n=0;
-
+    // elaborazione
 	// generazione cartelle 
 	for(int p=0;p<2;p++)
 	{
@@ -24,24 +24,25 @@ int main()
 			while(k<5)
 			{
 				int d=rand()%9;
-				if(c[p][r][d]==0)
+				if(c[p][r][d]==0) //p=giocatori,r=righe,d=decine(colonne)
 				{
 					int x;
+					//generazione numeri
 					if(d==0)
 					{
-						x=rand()%9+1;
+						x=rand()%9+1;//da 1 a 9
 					}
 					else if(d==8)
 					{
-						x=rand()%11+80;
+						x=rand()%11+80; // da 80 a 90
 					}
 					else
 					{
-						x=rand()%10+(d*10);
+						x=rand()%10+(d*10); //tutti gli altri numeri
 					}
 
 					bool rpt=false;
-					for(int i=0;i<3;i++)
+					for(int i=0;i<3;i++) // controllo se il numero estratto era già uscito
 					{
 						if(c[p][i][d]==x)
 						{
@@ -76,7 +77,7 @@ int main()
 
 		cout<<"--- Numero estratto: "<<e<<" --- (Totali: "<<n<<"/90)\n\n";
 
-		cout<<"Tabellone:\n";
+		cout<<"Tabellone:\n"; // stampa tabellone
 		for(int i=1;i<=90;i++)
 		{
 			if(t[i]==1)
@@ -93,7 +94,7 @@ int main()
 				cout<<" ";
 			}
 
-			if(i%10==0)
+			if(i%10==0) // per strutturare bene il tabellone (ogni 10 numeri va a capo)
 			{
 				cout<<endl;
 			}
@@ -118,13 +119,13 @@ int main()
 					{
 						if(t[z]==1)
 						{
-							cout<<"\033[31m";
+							cout<<"\033[31m"; //colora numero in rosso
 							if(z<10)
 							{
 								cout<<" ";
 							}
-							cout<<z<<"\033[0m ";
-							tot++;
+							cout<<z<<"\033[0m "; 
+							tot++; //contatore totale
 						}
 						else
 						{
@@ -138,7 +139,7 @@ int main()
 				}
 				cout<<endl;
 			}
-			if(tot==15)
+			if(tot==15) //se contatore è uguale a 15 , uno dei giocatori viene proclamato vincitore 
 			{
 				v=p+1;
 			}
@@ -150,9 +151,10 @@ int main()
 		}
 		else
 		{
-			sleep(3);
+			sleep(3); //pausa di 3 secondi prima di aggiornare  tabellone e  cartelle
 		}
 	}
 
 	return 0;
 }
+
